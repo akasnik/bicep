@@ -100,9 +100,12 @@ namespace Bicep.LanguageServer.Completions
             return item;
         }
 
-        public static CompletionItem WithCommand(this CompletionItem item, Command command)
+        public static CompletionItem WithCommand(this CompletionItem item, Command? command)
         {
-            item.Command = command;
+            if (command is not null)
+            {
+                item.Command = command;
+            }
             return item;
         }
 
